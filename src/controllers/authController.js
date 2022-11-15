@@ -76,8 +76,8 @@ router.delete('/task/:id', (req, res) => {
 			console.log(err)
 		}
 
-		if (!results[0]) {
-			return res.status(404).send({ error: 'Task not found!'})
+		if (results.affectedRows == 0) {
+			return res.status(404).send({ error: 'Task not found!' })
 		}
 
 		return res.send({ ok: true })
